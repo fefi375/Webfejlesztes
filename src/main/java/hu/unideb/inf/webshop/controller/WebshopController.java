@@ -1,6 +1,6 @@
 package hu.unideb.inf.webshop.controller;
 
-import hu.unideb.inf.webshop.data.entity.Felhasznalo;
+import hu.unideb.inf.webshop.data.entity.FelhasznaloEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,7 +13,9 @@ public class WebshopController {
     }
 
     @GetMapping("/person")
-    public Felhasznalo szemely(){
-        return new Felhasznalo();
+    public FelhasznaloEntity szemely(){
+        return new FelhasznaloEntity();
     }
+
+
 }
