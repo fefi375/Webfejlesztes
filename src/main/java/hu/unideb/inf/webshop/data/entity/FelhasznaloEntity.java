@@ -12,7 +12,7 @@ public class FelhasznaloEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "emaio")
+    @Column(name = "email")
     private String email;
 
     @Column(name = "nev")
