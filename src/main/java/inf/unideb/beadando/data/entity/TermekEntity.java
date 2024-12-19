@@ -24,10 +24,11 @@ public class TermekEntity {
 
     }
 
-    public TermekEntity(Long id, String nev, Integer ar) {
+    public TermekEntity(Long id, String nev, Integer ar, Integer mennyiseg) {
         this.id = id;
         this.nev = nev;
         this.ar = ar;
+        this.mennyiseg = mennyiseg;
     }
 
     public Long getId() {
@@ -52,5 +53,13 @@ public class TermekEntity {
 
     public void setAr(Integer ar) {
         this.ar = ar;
+    }
+
+    public Integer getMennyiseg() {
+        return mennyiseg;
+    }
+
+    public void setMennyiseg(Integer mennyiseg) {
+        this.mennyiseg = mennyiseg;
     }
 }
