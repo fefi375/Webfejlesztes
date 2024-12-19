@@ -13,6 +13,10 @@ public class Felhasznalo {
     @Column(name = "jelszo")
     private String jelszo;
 
+    @Column(name = "email")
+    private String email;
+
+
     public Felhasznalo() {
 
     }

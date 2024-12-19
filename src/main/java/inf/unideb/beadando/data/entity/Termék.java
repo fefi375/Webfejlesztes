@@ -13,6 +13,8 @@ public class Termék {
     private String nev;
     @Column(name = "ar")
     private Integer ar;
+    @Column(name = "mennyiseg")
+    private Integer mennyiseg;
 
     public Termék() {
 
