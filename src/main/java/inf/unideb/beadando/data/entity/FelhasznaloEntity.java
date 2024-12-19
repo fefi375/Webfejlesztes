@@ -2,9 +2,11 @@ package inf.unideb.beadando.data.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "felhasznalo")
-public class Felhasznalo {
+public class FelhasznaloEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -16,12 +18,15 @@ public class Felhasznalo {
     @Column(name = "email")
     private String email;
 
+    @OneToMany(mappedBy = "felhasznalo")
+    private List<TermékEntity> termekek;
 
-    public Felhasznalo() {
+
+    public FelhasznaloEntity() {
 
     }
 
-    public Felhasznalo(Long id, String nev, String jelszo) {
+    public FelhasznaloEntity(Long id, String nev, String jelszo) {
         this.id = id;
         this.nev = nev;
         this.jelszo = jelszo;

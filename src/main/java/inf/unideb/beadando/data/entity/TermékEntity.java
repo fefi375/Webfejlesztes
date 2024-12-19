@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "termék")
-public class Termék {
+public class TermékEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,11 +16,15 @@ public class Termék {
     @Column(name = "mennyiseg")
     private Integer mennyiseg;
 
-    public Termék() {
+    @ManyToOne
+    @JoinColumn(name = "gelhasznalo_id", referencedColumnName = "id")
+    private FelhasznaloEntity felhasznalo;
+
+    public TermékEntity() {
 
     }
 
-    public Termék(Long id, String nev, Integer ar) {
+    public TermékEntity(Long id, String nev, Integer ar) {
         this.id = id;
         this.nev = nev;
         this.ar = ar;
