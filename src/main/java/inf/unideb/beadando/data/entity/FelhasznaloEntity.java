@@ -19,7 +19,7 @@ public class FelhasznaloEntity {
     private String email;
 
     @OneToMany(mappedBy = "felhasznalo")
-    private List<TermékEntity> termekek;
+    private List<TermekEntity> termekek;
 
 
     public FelhasznaloEntity() {

@@ -1,33 +1,20 @@
-package inf.unideb.beadando.data.entity;
+package inf.unideb.beadando.service.dto;
 
-import jakarta.persistence.*;
+public class TermekDto {
 
-@Entity
-@Table(name = "termék")
-public class TermékEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name = "nev")
     private String nev;
-    @Column(name = "ar")
     private Integer ar;
-    @Column(name = "mennyiseg")
     private Integer mennyiseg;
 
-    @ManyToOne
-    @JoinColumn(name = "gelhasznalo_id", referencedColumnName = "id")
-    private FelhasznaloEntity felhasznalo;
-
-    public TermékEntity() {
-
+    public TermekDto() {
     }
 
-    public TermékEntity(Long id, String nev, Integer ar) {
+    public TermekDto(Long id, String nev, Integer ar, Integer mennyiseg) {
         this.id = id;
         this.nev = nev;
         this.ar = ar;
+        this.mennyiseg = mennyiseg;
     }
 
     public Long getId() {
@@ -52,5 +39,13 @@ public class TermékEntity {
 
     public void setAr(Integer ar) {
         this.ar = ar;
+    }
+
+    public Integer getMennyiseg() {
+        return mennyiseg;
+    }
+
+    public void setMennyiseg(Integer mennyiseg) {
+        this.mennyiseg = mennyiseg;
     }
 }
