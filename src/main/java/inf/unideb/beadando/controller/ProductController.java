@@ -39,7 +39,7 @@ public class ProductController {
         service.delete(id);
     }
 
-    @GetMapping("/etel")
+    @GetMapping("/termek")
     public List<TermekDto> findAll(){
         return service.findAll();
     }

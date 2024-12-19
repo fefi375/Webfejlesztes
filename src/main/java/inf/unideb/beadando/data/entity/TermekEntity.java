@@ -2,6 +2,8 @@ package inf.unideb.beadando.data.entity;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @Entity
 @Table(name = "termék")
 public class TermekEntity {
@@ -17,7 +19,7 @@ public class TermekEntity {
     private Integer mennyiseg;
 
     @ManyToOne
-    @JoinColumn(name = "gelhasznalo_id", referencedColumnName = "id")
+    @JoinColumn(name = "felhasznalo_id", referencedColumnName = "id")
     private FelhasznaloEntity felhasznalo;
 
     public TermekEntity() {
@@ -61,5 +63,18 @@ public class TermekEntity {
 
     public void setMennyiseg(Integer mennyiseg) {
         this.mennyiseg = mennyiseg;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TermekEntity entity = (TermekEntity) o;
+        return Objects.equals(id, entity.id) && Objects.equals(nev, entity.nev) && Objects.equals(ar, entity.ar) && Objects.equals(mennyiseg, entity.mennyiseg) && Objects.equals(felhasznalo, entity.felhasznalo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nev, ar, mennyiseg, felhasznalo);
     }
 }

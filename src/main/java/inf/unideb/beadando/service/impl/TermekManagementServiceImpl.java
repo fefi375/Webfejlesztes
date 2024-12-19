@@ -17,6 +17,7 @@ public class TermekManagementServiceImpl implements TermekManagementService {
 
     @Autowired
     TermekRepository repo;
+    @Autowired
     ModelMapper mapper;
 
     @Override
