@@ -39,8 +39,6 @@ public class TermekManagementServiceImpl implements TermekManagementService {
 
         dtos = mapper.map(entities, new TypeToken<List<TermekDto>>(){}.getType());
         return dtos;
-
-        return
     }
 
     @Override
