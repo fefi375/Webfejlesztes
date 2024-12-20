@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "termék")
+@Table(name = "termek")
 public class TermekEntity {
 
     @Id
@@ -20,10 +20,10 @@ public class TermekEntity {
     @Column(name = "mennyiseg")
     private Integer mennyiseg;
 
-    @ManyToMany
-    @JoinTable(name = "termek",
-    joinColumns = @JoinColumn(name = "termek_id"),
-    inverseJoinColumns = @JoinColumn(name = "felhasznalo_id"))
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "felhasznalo_termek" ,
+    joinColumns = @JoinColumn(name = "termek_id", referencedColumnName = "id"),
+    inverseJoinColumns = @JoinColumn(name = "felhasznalo_id", referencedColumnName = "id"))
     private List<FelhasznaloEntity> felhasznalo;
 
     public TermekEntity() {

@@ -3,6 +3,7 @@ package inf.unideb.beadando.data.entity;
 import jakarta.persistence.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "felhasznalo")
@@ -18,7 +19,7 @@ public class FelhasznaloEntity {
     @Column(name = "email")
     private String email;
 
-    @ManyToMany(mappedBy = "felhasznalo")
+    @ManyToMany(mappedBy = "felhasznalo", fetch = FetchType.LAZY)
     List<TermekEntity> termekek;
 
 
@@ -54,5 +55,18 @@ public class FelhasznaloEntity {
 
     public void setJelszo(String jelszo) {
         this.jelszo = jelszo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        FelhasznaloEntity that = (FelhasznaloEntity) o;
+        return Objects.equals(id, that.id) && Objects.equals(nev, that.nev) && Objects.equals(jelszo, that.jelszo) && Objects.equals(email, that.email) && Objects.equals(termekek, that.termekek);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nev, jelszo, email, termekek);
     }
 }

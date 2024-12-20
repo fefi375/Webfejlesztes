@@ -1,5 +1,7 @@
 package inf.unideb.beadando.service.dto;
 
+import java.util.Objects;
+
 public class TermekDto {
 
     private Long id;
@@ -47,5 +49,18 @@ public class TermekDto {
 
     public void setMennyiseg(Integer mennyiseg) {
         this.mennyiseg = mennyiseg;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TermekDto termekDto = (TermekDto) o;
+        return Objects.equals(id, termekDto.id) && Objects.equals(nev, termekDto.nev) && Objects.equals(ar, termekDto.ar) && Objects.equals(mennyiseg, termekDto.mennyiseg);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nev, ar, mennyiseg);
     }
 }
