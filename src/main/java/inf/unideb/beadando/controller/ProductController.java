@@ -34,8 +34,8 @@ public class ProductController {
         else return null;
     }
 
-    @DeleteMapping("/termek")
-    public void delete(@RequestParam Long id){
+    @DeleteMapping("/termek/{id}")
+    public void delete(@PathVariable Long id){
         service.delete(id);
     }
 
