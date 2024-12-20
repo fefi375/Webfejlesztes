@@ -20,7 +20,7 @@ public class ProductController {
         return "Hello, a webalkalmazas elindult.";
     }*/
 
-    @PostMapping("/savetermek")
+    @PostMapping("/addtermek")
     public TermekDto save (@RequestBody TermekDto termek){
         return service.save(termek);
     }
@@ -35,7 +35,7 @@ public class ProductController {
     }
 
     @DeleteMapping("/termek")
-    public void delete(Long id){
+    public void delete(@RequestParam Long id){
         service.delete(id);
     }
 
