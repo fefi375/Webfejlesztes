@@ -10,6 +10,7 @@ public class TermekDto {
     private Integer mennyiseg;
 
     public TermekDto() {
+
     }
 
     public TermekDto(Long id, String nev, Integer ar, Integer mennyiseg) {

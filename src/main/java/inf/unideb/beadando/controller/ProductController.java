@@ -15,10 +15,10 @@ public class ProductController {
     @Autowired
     private TermekManagementServiceImpl service;
 
-    @GetMapping("/hello")
+   /* @GetMapping("/hello") Helllo próba
     public String hello(){
         return "Hello, a webalkalmazas elindult.";
-    }
+    }*/
 
     @PostMapping("/savetermek")
     public TermekDto save (@RequestBody TermekDto termek){
@@ -26,8 +26,8 @@ public class ProductController {
     }
 
     @PutMapping("/updatetermek")
-    public TermekDto update(TermekDto termek){
-        if(termek.getId() >0L){
+    public TermekDto update(@RequestBody TermekDto termek){
+        if(termek.getId() > 0L){
             return service.save(termek);
         }
 
@@ -39,7 +39,7 @@ public class ProductController {
         service.delete(id);
     }
 
-    @GetMapping("/termek")
+    @GetMapping("/termekek")
     public List<TermekDto> findAll(){
         return service.findAll();
     }
