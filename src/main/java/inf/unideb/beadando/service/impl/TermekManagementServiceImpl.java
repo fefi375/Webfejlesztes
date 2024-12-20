@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TermekManagementServiceImpl implements TermekManagementService {
@@ -56,16 +57,16 @@ public class TermekManagementServiceImpl implements TermekManagementService {
 
     @Override
     public void delete(Long id) {
-
+        repo.deleteById(id);
     }
 
     @Override
     public List<TermekDto> findByNev(String nev) {
-        return null;
+        List<TermekEntity> szurt = new ArrayList<>();
+
+        szurt=repo.findAll().stream().filter(x -> x.getNev().contains(nev)).collect(Collectors.toList());
+
+        return mapper.map(szurt, new TypeToken<List<TermekDto>>(){}.getType());
     }
 
-    @Override
-    public List<TermekDto> findByNevDb(String nev) {
-        return null;
-    }
 }

@@ -1,7 +1,9 @@
 package inf.unideb.beadando.data.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Fetch;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -18,9 +20,11 @@ public class TermekEntity {
     @Column(name = "mennyiseg")
     private Integer mennyiseg;
 
-    @ManyToOne
-    @JoinColumn(name = "felhasznalo_id", referencedColumnName = "id")
-    private FelhasznaloEntity felhasznalo;
+    @ManyToMany
+    @JoinTable(name = "termek",
+    joinColumns = @JoinColumn(name = "termek_id"),
+    inverseJoinColumns = @JoinColumn(name = "felhasznalo_id"))
+    private List<FelhasznaloEntity> felhasznalo;
 
     public TermekEntity() {
 

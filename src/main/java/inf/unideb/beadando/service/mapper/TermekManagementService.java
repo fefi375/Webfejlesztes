@@ -12,6 +12,6 @@ public interface TermekManagementService {
     void delete(Long id);
 
     List<TermekDto> findByNev(String nev);
-    List<TermekDto> findByNevDb(String nev);
+
 
 }
